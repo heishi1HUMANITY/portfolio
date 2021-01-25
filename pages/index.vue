@@ -93,32 +93,7 @@ export default Vue.extend({
       }
     });
     return { skills: res.contents };
-  },
-  head() {
-    return {
-      meta: [
-        {
-          hid: 'og:site_name',
-          property: 'og:site_name',
-          content: 'heishi1HUMANITY',
-        },
-        { hid: 'og:type', property: 'og:type', content: 'website' },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: 'https://heishi1humanity.tk/',
-        },
-        { hid: 'og:title', property: 'og:title', content: 'heishi1HUMANITY' },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: 'heishi1HUMANITYのポートフォリオ（仮）',
-        },
-        { hid: 'og:image', property: 'og:image', content: '/face.webp' },
-        { hid: 'twitter:card', property: 'twitter:card', content: 'summary' },
-      ],
-    };
-  },
+  }
 });
 </script>
 
