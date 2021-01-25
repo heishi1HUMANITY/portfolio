@@ -20,7 +20,7 @@
 import Vue from 'vue';
 export default Vue.extend({
   asyncData() {
-    return fetch('https://heishi1humanity.microcms.io/api/v1/posts', {
+    return fetch('https://heishi1humanity.microcms.io/api/v1/posts?limit=50', {
       headers: {
         'X-API-KEY': 'efc11354-3ce4-4b38-a25f-6835e5bd94bb',
       },

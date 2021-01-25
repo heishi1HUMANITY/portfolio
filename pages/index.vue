@@ -7,7 +7,11 @@
           <h1 class="md:text-5xl mr-5 text-4xl antialiased">heishi1HUMANITY</h1>
           <p class="text-sm antialiased">(大西 悠太)</p>
         </div>
-        <img src="/face.webp" alt="myface" class="sm:h-32 h-12 my-4 rounded-full" />
+        <img
+          src="/face.webp"
+          alt="myface"
+          class="sm:h-32 h-12 my-4 rounded-full"
+        />
       </div>
       <p class="md:text-lg text-base antialiased mb-1">age: {{ age }}</p>
       <p class="md:text-lg text-base antialiased mb-1">
@@ -17,6 +21,8 @@
         github:
         <a
           href="https://github.com/heishi1HUMANITY"
+          target="_blank"
+          rel="noopener noreferrer"
           class="border-b-2 hover:opacity-50"
           >https://github.com/heishi1HUMANITY</a
         >
@@ -25,6 +31,8 @@
         twitter:
         <a
           href="https://twitter.com/YutaOnishi2"
+          target="_blank"
+          rel="noopener noreferrer"
           class="border-b-2 hover:opacity-50"
           >https://twitter.com/YutaOnishi2</a
         >
@@ -33,6 +41,8 @@
         facebook:
         <a
           href="https://www.facebook.com/i4mhuman1ty/"
+          target="_blank"
+          rel="noopener noreferrer"
           class="border-b-2 hover:opacity-50"
           >https://www.facebook.com/i4mhuman1ty/</a
         >
