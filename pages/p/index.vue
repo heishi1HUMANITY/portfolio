@@ -14,7 +14,7 @@ import Vue from 'vue'
 export default Vue.extend({
   asyncData(context) {
     return fetch(
-      `https://heishi1humanity.microcms.io/api/v1/posts/${context.params.id}`,
+      `https://heishi1humanity.microcms.io/api/v1/posts/${context.query.id}`,
       {
         headers: {
           'X-API-KEY': 'efc11354-3ce4-4b38-a25f-6835e5bd94bb',
