@@ -12,6 +12,15 @@
 <script lang="ts">
 import Vue from 'vue';
 export default Vue.extend({
+  data: () => ({
+    meta: {
+      title: '',
+      description: '',
+      type: 'article',
+      url: `https://heishi1humanity.tk/p/`,
+      img: 'https://heishi1humanity.tk/face.webp',
+    },
+  }),
   asyncData(context) {
     return fetch(
       `https://heishi1humanity.microcms.io/api/v1/posts/${context.params.id}`,
@@ -28,10 +37,39 @@ export default Vue.extend({
         return {
           json: json,
           timestamp: tmp[0],
+          meta: {
+            title: 'heishi1HUMANITY-' + json.title,
+            description: json.title,
+            type: 'article',
+            url: `https://heishi1humanity.tk/p/${context.params.id}`,
+            img:
+              typeof json.thumbnail === 'undefined'
+                ? 'https://heishi1humanity.tk/face.webp'
+                : json.thumbnail.url,
+          },
         };
       });
   },
+  head() {
+    return {
+      title: this.meta.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.meta.description,
+        },
+        { hid: 'og:type', property: 'og:type', content: this.meta.type },
+        { hid: 'og:title', property: 'og:title', content: this.meta.title },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.meta.description,
+        },
+        { hid: 'og:url', property: 'og:url', content: this.meta.url },
+        { hid: 'og:image', property: 'og:image', content: this.meta.img },
+      ],
+    };
+  },
 });
 </script>
-
-<style></style>
