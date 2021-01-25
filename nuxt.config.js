@@ -9,13 +9,6 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'og:site_name', property: 'og:site_name', content: 'サイト名' },
-      { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: 'https://confident-galileo-c31b59.netlify.app/' },
-      { hid: 'og:title', property: 'og:title', content: 'heishi1HUMANITY' },
-      { hid: 'og:description', property: 'og:description', content: 'heishi1HUMANITYのポートフォリオ（仮）' },
-      { hid: 'og:image', property: 'og:image', content: '/face.webp' },
-      { name: 'twitter:card', content: 'summary' },　//twitterの画像サイズ
     ],
     link: [
       { rel: 'icon', type: 'image/webp', href: '/face.webp' }
