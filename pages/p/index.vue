@@ -1,7 +1,7 @@
 <template>
   <div id="container" class="w-full">
     <Header />
-    <div class="md:mx-24 md:my-6 mx-12 my-4">
+    <div class="md:mx-24 md:my-6 sm:mx-12 mx-6 my-4">
       <h1 class="md:text-5xl text-2xl antialiased">{{ data.title }}</h1>
       <p class="text-sm antialiased mb-6">最終更新 : {{timestamp}}</p>
       <div v-html="data.body"></div>

@@ -1,7 +1,7 @@
 <template>
   <div id="container" class="w-full">
     <Header></Header>
-    <div class="flex flex-wrap justify-center md:mx-24 mx-12 md:my-12 my-6 gap-6">
+    <div class="flex flex-wrap justify-center md:mx-24 sm:mx-12 mx-0 md:my-12 my-6">
       <template v-for="i in items.contents">
         <Card
           :key="i.id"
