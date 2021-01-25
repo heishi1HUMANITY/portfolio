@@ -1,6 +1,6 @@
 <template>
   <router-link
-    :to="`/p?id=${id}`"
+    :to="`/p/${id}`"
     class="rounded py-6 px-3 mx-2 my-4 shadow-md sm:w-64 w-full flex flex-col items-center justify-start transition ease-in-out duration-500 transform hover:scale-105"
   >
     <img :src="src" alt="" class="h-24 w-full object-cover rounded" />
