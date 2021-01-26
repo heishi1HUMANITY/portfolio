@@ -7,11 +7,14 @@
           <h1 class="md:text-5xl mr-5 text-4xl antialiased">heishi1HUMANITY</h1>
           <p class="text-sm antialiased">(大西 悠太)</p>
         </div>
-        <img
-          src="/face.webp"
-          alt="myface"
-          class="sm:h-32 h-12 my-4 rounded-full"
-        />
+        <div class="flex flex-col items-center justify-center">
+          <img
+            src="/face.webp"
+            alt="myface"
+            class="sm:h-32 h-20 my-4 rounded-full"
+          />
+          <p class="text-xs antialiased text-gray-600">※素顔ではありません</p>
+        </div>
       </div>
       <p class="md:text-lg text-base antialiased mb-1">age: {{ age }}</p>
       <p class="md:text-lg text-base antialiased mb-1">
