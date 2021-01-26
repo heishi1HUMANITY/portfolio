@@ -1,7 +1,7 @@
 <template>
   <div id="container" class="w-full">
     <Header />
-    <div class="md:m-24 sm:m-12 m-6 flex flex-col items-start">
+    <div class="md:mx-24 sm:m-12 m-6 my-6 flex flex-col items-start">
       <div class="flex items-center flex-wrap mb-5">
         <div class="flex flex-col items-start justify-center">
           <h1 class="md:text-5xl mr-5 text-4xl antialiased">heishi1HUMANITY</h1>
@@ -48,16 +48,70 @@
         >
       </p>
       <div class="w-full h-auto flex flex-col items-start">
-        <h2 class="md:text-2xl text-xl antialiased mb-4">skills</h2>
+        <h2 class="md:text-2xl text-xl antialiased mb-4">language</h2>
         <template v-for="s in skills">
-          <div class="w-full mb-2 border-b border-gray-600" :key="s.id">
-            <p class="md:text-lg text-base antialiased mb-1 mx-4">
-              {{ s.title }}
-            </p>
-            <p class="md:text-base text-sm antialiased mb-1 mx-6">
-              {{ s.body }}
-            </p>
-          </div>
+          <template v-if="s.type === 'lang'">
+            <div class="w-full mb-2 border-b border-gray-600" :key="s.id">
+              <p class="md:text-lg text-base antialiased mb-1 mx-4">
+                {{ s.title }}
+              </p>
+              <p class="md:text-base text-sm antialiased mb-1 mx-6">
+                {{ s.body }}
+              </p>
+            </div>
+          </template>
+        </template>
+        <h2 class="md:text-2xl text-xl antialiased mb-4">software framework</h2>
+        <template v-for="s in skills">
+          <template v-if="s.type === 'framework'">
+            <div class="w-full mb-2 border-b border-gray-600" :key="s.id">
+              <p class="md:text-lg text-base antialiased mb-1 mx-4">
+                {{ s.title }}
+              </p>
+              <p class="md:text-base text-sm antialiased mb-1 mx-6">
+                {{ s.body }}
+              </p>
+            </div>
+          </template>
+        </template>
+        <h2 class="md:text-2xl text-xl antialiased mb-4">software</h2>
+        <template v-for="s in skills">
+          <template v-if="s.type === 'software'">
+            <div class="w-full mb-2 border-b border-gray-600" :key="s.id">
+              <p class="md:text-lg text-base antialiased mb-1 mx-4">
+                {{ s.title }}
+              </p>
+              <p class="md:text-base text-sm antialiased mb-1 mx-6">
+                {{ s.body }}
+              </p>
+            </div>
+          </template>
+        </template>
+        <h2 class="md:text-2xl text-xl antialiased mb-4">os</h2>
+        <template v-for="s in skills" class="mb-4">
+          <template v-if="s.type === 'os'">
+            <div class="w-full mb-2 border-b border-gray-600" :key="s.id">
+              <p class="md:text-lg text-base antialiased mb-1 mx-4">
+                {{ s.title }}
+              </p>
+              <p class="md:text-base text-sm antialiased mb-1 mx-6">
+                {{ s.body }}
+              </p>
+            </div>
+          </template>
+        </template>
+        <h2 class="md:text-2xl text-xl antialiased mb-4">service</h2>
+        <template v-for="s in skills">
+          <template v-if="s.type === 'service'">
+            <div class="w-full mb-2 border-b border-gray-600" :key="s.id">
+              <p class="md:text-lg text-base antialiased mb-1 mx-4">
+                {{ s.title }}
+              </p>
+              <p class="md:text-base text-sm antialiased mb-1 mx-6">
+                {{ s.body }}
+              </p>
+            </div>
+          </template>
         </template>
       </div>
     </div>
@@ -81,7 +135,7 @@ export default Vue.extend({
   },
   asyncData: async () => {
     const res = await fetch(
-      'https://heishi1humanity.microcms.io/api/v1/skills?fields=id,title,body,field&limit=20&orders=createdAt',
+      'https://heishi1humanity.microcms.io/api/v1/skills?fields=id,title,body,type&limit=20&orders=createdAt',
       {
         headers: {
           'X-API-KEY': 'efc11354-3ce4-4b38-a25f-6835e5bd94bb',
@@ -93,7 +147,7 @@ export default Vue.extend({
       }
     });
     return { skills: res.contents };
-  }
+  },
 });
 </script>
 
