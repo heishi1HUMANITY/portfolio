@@ -4,7 +4,7 @@
     <div class="md:mx-24 md:my-6 sm:mx-12 mx-6 my-4">
       <h1 class="md:text-5xl text-2xl antialiased">{{ json.title }}</h1>
       <p class="text-sm antialiased mb-6">最終更新 : {{ timestamp }}</p>
-      <div v-html="json.body"></div>
+      <div v-html="json.body" id="body_wrapper"></div>
     </div>
   </div>
 </template>
@@ -73,3 +73,14 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style>
+  #body_wrapper a {
+    color: #1919bb;
+    border-bottom: #1919bb 1px solid;
+    word-break: break-all;
+  }
+  #body_wrapper a:hover {
+    opacity: .7;
+  }
+</style>

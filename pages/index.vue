@@ -23,7 +23,7 @@
           href="https://github.com/heishi1HUMANITY"
           target="_blank"
           rel="noopener noreferrer"
-          class="border-b-2 hover:opacity-50"
+          class="border-b-2 hover:opacity-50 break-all"
           >https://github.com/heishi1HUMANITY</a
         >
       </p>
@@ -33,18 +33,18 @@
           href="https://twitter.com/YutaOnishi2"
           target="_blank"
           rel="noopener noreferrer"
-          class="border-b-2 hover:opacity-50"
+          class="border-b-2 hover:opacity-50 break-all"
           >https://twitter.com/YutaOnishi2</a
         >
       </p>
       <p class="md:text-lg text-base antialiased mb-6">
         facebook:
         <a
-          href="https://www.facebook.com/i4mhuman1ty/"
+          href="https://www.facebook.com/i4mhuman1ty"
           target="_blank"
           rel="noopener noreferrer"
-          class="border-b-2 hover:opacity-50"
-          >https://www.facebook.com/i4mhuman1ty/</a
+          class="border-b-2 hover:opacity-50 break-all"
+          >https://www.facebook.com/i4mhuman1ty</a
         >
       </p>
       <div class="w-full h-auto flex flex-col items-start">
