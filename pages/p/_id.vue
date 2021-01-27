@@ -83,4 +83,13 @@ export default Vue.extend({
   #body_wrapper a:hover {
     opacity: .7;
   }
+  @media(prefers-color-scheme: dark){
+    body {
+      color: rgb(247, 250, 252);
+    }
+    #body_wrapper a {
+      color: #8585ee;
+      border-bottom: #8585ee 1px solid;
+    }
+  }
 </style>
