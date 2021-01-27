@@ -77,4 +77,7 @@ export default {
   purgeCSS: {
     whitelist: ['dark-mode'],
   },
+  generate: {
+    fallback: '404.html',
+  },
 };

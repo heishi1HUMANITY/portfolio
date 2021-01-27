@@ -18,6 +18,8 @@ module.exports = {
     ],
     borderColor: ['dark', 'dark-disabled', 'dark-focus', 'dark-focus-within'],
     textColor: ['dark', 'dark-hover', 'dark-active', 'dark-placeholder'],
+    width: ['group-hover'],
+    translate: ['group-hover']
   },
   plugins: [require('tailwindcss-dark-mode')()],
 };
