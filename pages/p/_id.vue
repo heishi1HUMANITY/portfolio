@@ -75,21 +75,27 @@ export default Vue.extend({
 </script>
 
 <style>
+#body_wrapper a {
+  color: #1919bb;
+  border-bottom: #1919bb 1px solid;
+  word-break: break-all;
+}
+#body_wrapper a:hover {
+  opacity: 0.7;
+}
+#body_wrapper pre {
+  padding: 16px 32px;
+  background-color: #364549;
+  color: #e3e3e3;
+  overflow-x: auto;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    color: rgb(247, 250, 252);
+  }
   #body_wrapper a {
-    color: #1919bb;
-    border-bottom: #1919bb 1px solid;
-    word-break: break-all;
+    color: #8585ee;
+    border-bottom: #8585ee 1px solid;
   }
-  #body_wrapper a:hover {
-    opacity: .7;
-  }
-  @media(prefers-color-scheme: dark){
-    body {
-      color: rgb(247, 250, 252);
-    }
-    #body_wrapper a {
-      color: #8585ee;
-      border-bottom: #8585ee 1px solid;
-    }
-  }
+}
 </style>
