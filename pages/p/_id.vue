@@ -1,10 +1,10 @@
 <template>
   <div id="container" class="w-full">
     <Header />
-    <div class="md:mx-24 md:my-6 sm:mx-12 mx-6 my-4">
-      <h1 class="md:text-5xl text-2xl antialiased">{{ json.title }}</h1>
+    <div class="md:mx-24 md:my-6 sm:mx-12 mx-4 my-4">
+      <h1 class="md:text-5xl text-3xl antialiased">{{ json.title }}</h1>
       <p class="text-sm antialiased mb-6">最終更新 : {{ timestamp }}</p>
-      <div v-html="json.body" id="body_wrapper"></div>
+      <div v-html="json.body" id="body_wrapper" class="md:text-base text-sm"></div>
     </div>
   </div>
 </template>
@@ -75,19 +75,30 @@ export default Vue.extend({
 </script>
 
 <style>
+#body_wrapper {
+  word-break: break-all;
+}
 #body_wrapper a {
   color: #1919bb;
   border-bottom: #1919bb 1px solid;
-  word-break: break-all;
 }
 #body_wrapper a:hover {
   opacity: 0.7;
 }
 #body_wrapper pre {
-  padding: 16px 32px;
+  padding: 8px 16px;
   background-color: #364549;
   color: #e3e3e3;
   overflow-x: auto;
+}
+#body_wrapper iframe {
+  max-width: 100%;
+  height: 300px;
+}
+@media (min-width: 768px) {
+  #body_wrapper pre {
+    padding: 16px 32px;
+  }
 }
 @media (prefers-color-scheme: dark) {
   body {

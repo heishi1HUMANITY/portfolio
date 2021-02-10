@@ -1,7 +1,7 @@
 <template>
   <div id="container" class="w-full">
     <Header />
-    <div class="md:mx-24 sm:m-12 m-6 my-6 flex flex-col items-start ">
+    <div class="md:mx-24 sm:m-12 mx-4 my-6 flex flex-col items-start ">
       <div class="flex items-center flex-wrap mb-5">
         <div class="flex flex-col items-start justify-center">
           <h1 class="md:text-5xl mr-5 text-4xl antialiased dark:text-gray-100">heishi1HUMANITY</h1>
