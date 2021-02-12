@@ -85,13 +85,11 @@ export default Vue.extend({
   },
   methods: {
     share: function () {
-      navigator
-        .share({
-          title: this.meta.title,
-          text: this.meta.description,
-          url: this.meta.url,
-        })
-        .catch((e) => alert(e.message));
+      navigator.share({
+        title: this.meta.title,
+        text: this.meta.description,
+        url: this.meta.url,
+      });
     },
   },
   mounted: function () {
