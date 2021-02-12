@@ -34,7 +34,7 @@ export default Vue.extend({
   },
   data: () => ({
     meta: {
-          title: 'heishi1HUMANITY-articles',
+          title: 'articles-heishi1HUMANITY',
           description: 'heishi1HUMANITYの記事',
           type: 'article',
           url: 'https://heishi1humanity.tk/articles'

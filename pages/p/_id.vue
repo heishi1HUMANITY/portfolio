@@ -1,10 +1,21 @@
 <template>
   <div id="container" class="w-full">
     <Header />
-    <div class="md:mx-24 md:my-6 sm:mx-12 mx-4 my-4">
+    <div class="md:mx-24 md:my-8 sm:mx-12 mx-4 my-6">
       <h1 class="md:text-5xl text-3xl antialiased">{{ json.title }}</h1>
       <p class="text-sm antialiased mb-6">最終更新 : {{ timestamp }}</p>
-      <div v-html="json.body" id="body_wrapper" class="md:text-base text-sm"></div>
+      <div
+        v-html="json.body"
+        id="body_wrapper"
+        class="md:text-base text-sm mb-6"
+      ></div>
+      <button
+        v-if="canShare"
+        class="text-base antialiased md:w-auto w-full md:px-6 md:py-1 py-2 border transition duration-300 ease-in-out border-gray-900 dark:border-white focus:outline-none hover:bg-black dark-hover:bg-white hover:text-white dark-hover:text-black"
+        @click="share"
+      >
+        共有
+      </button>
     </div>
   </div>
 </template>
@@ -20,6 +31,7 @@ export default Vue.extend({
       url: `https://heishi1humanity.tk/p/`,
       img: 'https://heishi1humanity.tk/face.webp',
     },
+    canShare: false,
   }),
   asyncData(context) {
     return fetch(
@@ -38,7 +50,7 @@ export default Vue.extend({
           json: json,
           timestamp: tmp[0],
           meta: {
-            title: 'heishi1HUMANITY-' + json.title,
+            title: json.title + '-heishi1HUMANITY',
             description: json.title,
             type: 'article',
             url: `https://heishi1humanity.tk/p/${context.params.id}`,
@@ -70,6 +82,20 @@ export default Vue.extend({
         { hid: 'og:image', property: 'og:image', content: this.meta.img },
       ],
     };
+  },
+  methods: {
+    share: function () {
+      navigator
+        .share({
+          title: this.meta.title,
+          text: this.meta.description,
+          url: this.meta.url,
+        })
+        .catch((e) => alert(e.message));
+    },
+  },
+  mounted: function () {
+    this.canShare = typeof navigator.share !== 'undefined';
   },
 });
 </script>
