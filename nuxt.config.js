@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -66,7 +68,28 @@ export default {
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: [
+    '@nuxtjs/sitemap'
+  ],
+
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://heishi1humanity.tk',
+    gzip: true,
+    routes(callback) {
+      fetch('https://heishi1humanity.microcms.io/api/v1/posts?limit=50', {
+        headers: {
+          'X-API-KEY': 'efc11354-3ce4-4b38-a25f-6835e5bd94bb',
+        },
+      })
+        .then(res => res.json())
+        .then(json => {
+          const routes = json.contents.map(p => `/p/${p.id}`);
+          callback(null, routes);
+        })
+    }
+
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
