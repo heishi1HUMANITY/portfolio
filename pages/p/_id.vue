@@ -24,6 +24,7 @@
 import Vue from 'vue';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/vs2015.css'
+import cheerio from 'cheerio';
 
 export default Vue.extend({
   data: () => ({
@@ -47,11 +48,20 @@ export default Vue.extend({
     )
       .then((res) => res.json())
       .then((json) => {
-        const tmp = json.updatedAt.split('T');
-        tmp[0].replace(/\-/g, '/');
+        const timestamp = json.updatedAt.split('T');
+        timestamp[0].replace(/\-/g, '/');
+
+        const $ = cheerio.load(json.body);
+        $('pre code').each((_, elm) => {
+          const result = hljs.highlightAuto($(elm).text());
+          $(elm).html(result.value);
+          $(elm).addClass('hljs');
+        });
+        json.body = $.html();
+
         return {
           json: json,
-          timestamp: tmp[0],
+          timestamp: timestamp[0],
           meta: {
             title: json.title + '-heishi1HUMANITY',
             description: json.title,
@@ -97,12 +107,12 @@ export default Vue.extend({
   },
   mounted: function () {
     this.canShare = typeof navigator.share !== 'undefined';
-    const tmp = document.querySelectorAll('code');
-    tmp.forEach(t => {
-      t.setAttribute('class', 'hljs');
-      console.log('hoge');
-      t.innerHTML = hljs.highlightAuto(t.innerText).value;
-    });
+    // const tmp = document.querySelectorAll('code');
+    // tmp.forEach(t => {
+    //   t.setAttribute('class', 'hljs');
+    //   console.log('hoge');
+    //   t.innerHTML = hljs.highlightAuto(t.innerText).value;
+    // });
   },
 });
 </script>
