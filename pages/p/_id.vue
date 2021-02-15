@@ -22,6 +22,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/vs2015.css'
+
 export default Vue.extend({
   data: () => ({
     meta: {
@@ -94,6 +97,12 @@ export default Vue.extend({
   },
   mounted: function () {
     this.canShare = typeof navigator.share !== 'undefined';
+    const tmp = document.querySelectorAll('code');
+    tmp.forEach(t => {
+      t.setAttribute('class', 'hljs');
+      console.log('hoge');
+      t.innerHTML = hljs.highlightAuto(t.innerText).value;
+    });
   },
 });
 </script>
@@ -109,21 +118,21 @@ export default Vue.extend({
 #body_wrapper a:hover {
   opacity: 0.7;
 }
-#body_wrapper pre {
+/* #body_wrapper pre {
   padding: 8px 16px;
   background-color: #364549;
   color: #e3e3e3;
   overflow-x: auto;
-}
+} */
 #body_wrapper iframe {
   max-width: 100%;
   height: 300px;
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   #body_wrapper pre {
     padding: 16px 32px;
   }
-}
+} */
 @media (prefers-color-scheme: dark) {
   body {
     color: rgb(247, 250, 252);
