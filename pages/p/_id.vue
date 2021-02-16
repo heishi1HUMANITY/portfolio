@@ -64,7 +64,7 @@ export default Vue.extend({
           timestamp: timestamp[0],
           meta: {
             title: json.title + '-heishi1HUMANITY',
-            description: json.title,
+            description: `${json.body.replace(/<(.*?)>/g, '').slice(0, 87)}...`,
             type: 'article',
             url: `https://heishi1humanity.tk/p/${context.params.id}`,
             img:
@@ -107,12 +107,6 @@ export default Vue.extend({
   },
   mounted: function () {
     this.canShare = typeof navigator.share !== 'undefined';
-    // const tmp = document.querySelectorAll('code');
-    // tmp.forEach(t => {
-    //   t.setAttribute('class', 'hljs');
-    //   console.log('hoge');
-    //   t.innerHTML = hljs.highlightAuto(t.innerText).value;
-    // });
   },
 });
 </script>
