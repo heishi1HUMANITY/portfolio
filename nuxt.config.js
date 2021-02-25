@@ -69,7 +69,8 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
 
   sitemap: {
@@ -89,6 +90,11 @@ export default {
         })
     }
 
+  },
+
+  robots: {
+    UserAgent: '*',
+    Sitemap: 'https://heishi1humanity.tk/sitemap.xml'
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
