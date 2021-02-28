@@ -11,7 +11,7 @@
       ></div>
       <button
         v-if="canShare"
-        class="text-base antialiased md:w-auto w-full md:px-6 md:py-1 py-2 border transition duration-300 ease-in-out border-gray-900 dark:border-white focus:outline-none hover:bg-black dark-hover:bg-white hover:text-white dark-hover:text-black"
+        class="text-base antialiased md:w-auto w-full md:px-6 md:py-1 py-2 mb-6 border transition duration-300 ease-in-out border-gray-900 dark:border-white focus:outline-none hover:bg-black dark-hover:bg-white hover:text-white dark-hover:text-black"
         @click="share"
       >
         共有
@@ -140,10 +140,9 @@ export default Vue.extend({
           .replace(/\&/g, '&amp;')
           .replace(/\'/g, '&#x27;')
           .replace(/\`/g, '&#x60;')
-          .replace(/\"/, '&quot;')
+          .replace(/\"/g, '&quot;')
           .replace(/\</g, '&lt;')
-          .replace(/\>/g, '&gt;')
-          .replace(/\n/g, '<br />'),
+          .replace(/\>/g, '&gt;'),
         timestamp:
           new Date().getFullYear() +
           '-' +
@@ -152,13 +151,16 @@ export default Vue.extend({
           '-' +
           new Date().getDate(),
       };
-      fetch(`https://portfolioserver-x6mrjtfwpq-an.a.run.app/api/v1/comments/${this.$route.params.id}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body),
-      }).then((res: Response) => {
+      fetch(
+        `https://portfolioserver-x6mrjtfwpq-an.a.run.app/api/v1/comments/${this.$route.params.id}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        }
+      ).then((res: Response) => {
         if (res.ok === true) {
           this.commentData.push(body);
           this.comment = '';
@@ -168,7 +170,9 @@ export default Vue.extend({
   },
   mounted: function () {
     this.canShare = typeof navigator.share !== 'undefined';
-    fetch(`https://portfolioserver-x6mrjtfwpq-an.a.run.app/api/v1/comments/${this.$route.params.id}`)
+    fetch(
+      `https://portfolioserver-x6mrjtfwpq-an.a.run.app/api/v1/comments/${this.$route.params.id}`
+    )
       .then((res) => {
         if (res.ok === true) {
           return res.json();
@@ -178,14 +182,6 @@ export default Vue.extend({
       })
       .then((res) => {
         res.forEach((v: any) => {
-          v.text = v.text
-            .replace(/\&/g, '&amp;')
-            .replace(/\'/g, '&#x27;')
-            .replace(/\`/g, '&#x60;')
-            .replace(/\"/, '&quot;')
-            .replace(/\</g, '&lt;')
-            .replace(/\>/g, '&gt;')
-            .replace(/\n/g, '<br />');
           v.timestamp = v.timestamp.split('T')[0];
         });
         this.commentData = res;
